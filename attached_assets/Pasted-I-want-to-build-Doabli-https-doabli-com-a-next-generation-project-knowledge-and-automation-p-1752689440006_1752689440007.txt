@@ -1,0 +1,92 @@
+I want to build Doabli (https://doabli.com) — a next-generation project, knowledge, and automation platform that goes beyond tools like Trello, Asana, ClickUp, Notion, Airtable, Jira, and Monday.com.
+
+Doabli should serve founders, teams, and creators as their all-in-one workspace for managing work, documenting knowledge, collaborating in real time, and automating repetitive tasks.
+
+🚀 Core Goal:
+Build a fully functional MVP of Doabli inside a single Replit project, using only free-tier, native Replit-supported technologies. The platform must be cloud-hosted, scalable, and production-ready, with a focus on clean architecture, modular design, and real-time collaboration.
+
+📦 Required Features
+✅ Task & Project Management
+Kanban boards, Calendar view, Gantt chart
+
+Task dependencies, priorities, subtasks, due dates
+
+Task commenting, file attachments, mentions (@user, #task)
+
+✅ Views & Databases (Airtable-like)
+Custom Views: List, Table, Gallery
+
+Filters, Sorting, Grouping by custom fields
+
+Formula fields and computed columns
+
+✅ Page Builder (Notion-style)
+Pages with drag-and-drop blocks: headings, text, checklists, embeds, code, media
+
+Inline references (@user, @project, @task)
+
+Nested pages and hierarchy
+
+✅ Automation Engine (ClickUp-style)
+"When X happens → Do Y" logic
+
+Scheduled automations: reminders, recurring tasks
+
+✅ Dashboards & Reporting
+Workload, Time tracking, Burndown charts
+
+Custom dashboards per team/user/project
+
+Widgets and filters
+
+✅ Team Collaboration
+Real-time updates via WebSocket or pub/sub
+
+Task assignment, shared boards, notifications
+
+Comment threads, reactions
+
+✅ File System
+File uploads (stored locally or encoded)
+
+Versioning and preview support
+
+Dropbox/Drive integration (optional V2)
+
+✅ Auth & Permissions
+User auth via JWT or Replit Auth
+
+Role-based access control
+
+Per-project, per-view, per-task permissions
+
+Guest/external sharing
+
+✅ Mobile-Optimized UX
+Fully responsive layout
+
+Drag-and-drop on touch screens
+
+Fast performance on mobile
+
+⚙️ Technical Stack
+Layer	Tech
+Frontend	React + Tailwind CSS
+Backend	Node.js + Express
+Real-time	WebSocket or @replit/pubsub
+Database	PostgreSQL or Replit DB
+Auth	JWT or Replit Auth
+Hosting	Replit (single project setup)
+
+📁 MVP Deliverables (in Replit)
+Folder structure for clean separation of client, server, db, components
+
+Schema design: users, projects, boards, tasks, comments, views, automations, files
+
+Skeleton UI components (Kanban, Calendar, Page editor)
+
+REST API routes and WebSocket logic
+
+Auth + permission layer (JWT or Replit Auth)
+
+Deployment guide for 100% free-tier Replit launch
