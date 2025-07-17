@@ -1,0 +1,41 @@
+Step 1: Simplicity First — Make Doabli Easy to Use
+1. Streamline the Onboarding Process
+Quick Setup:
+
+Right from the start, minimize any configuration. When users first sign in, immediately show them a pre-configured board (like a default task board).
+
+Skip advanced setup: Let users get started with minimal effort (skip account verifications, complicated environment setups).
+
+Use step-by-step onboarding (like Trello’s quick tutorial) to guide them through creating their first project and task.
+
+2. Simplified UI — Only Show What’s Needed
+Core functionality up front:
+
+Focus on Kanban boards for now. When users log in, show them their board, tasks, and nothing else.
+
+Use a minimal, clean interface. Avoid complex menus, pop-ups, and secondary panels.
+
+Place key actions like task creation, adding comments, moving tasks, and assigning users within easy reach (e.g., buttons at the bottom of the screen or a floating action button).
+
+3. Default Views
+Minimal View: By default, show a single Kanban view with columns (e.g., “To Do,” “In Progress,” “Completed”). No distractions.
+
+Offer simple options to add due dates, assign tasks, or leave comments without overwhelming the user with many fields.
+
+4. Simplify the Task Management
+Drag-and-Drop: Make task movement (Kanban-style) super intuitive and immediate.
+
+Task creation: One-click task creation. Just a single line text box that expands with options (priority, due date, etc.).
+
+Limit Fields: For task creation and editing, only show essential fields (task title, assignee, due date). More fields should be accessible in an advanced settings dropdown.
+
+5. Real-Time Collaboration (Without Overwhelm)
+Use simple live updates: When a team member adds a task or comments, show it immediately without overwhelming users with popups or too much information.
+
+Limit the use of notifications—just relevant updates like task changes and due date reminders. Avoid over-notifying.
+
+6. Easy Mobile Optimization
+Mobile-First Approach: Ensure your mobile interface is as simple as the desktop version. Make buttons large enough for touch, and ensure all key features (task management, creating, moving, assigning tasks) are within two or three taps.
+
+Avoid clutter by keeping only core task management features front and center in the mobile view.
+

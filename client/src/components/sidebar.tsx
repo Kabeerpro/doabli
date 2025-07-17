@@ -27,11 +27,10 @@ export default function Sidebar() {
   });
 
   const navigationItems = [
-    { href: "/", icon: Home, label: "Dashboard", exact: true },
+    { href: "/", icon: CheckSquare, label: "Task Board", exact: true },
     { href: "/tasks", icon: CheckSquare, label: "My Tasks" },
     { href: "/calendar", icon: Calendar, label: "Calendar" },
     { href: "/pages", icon: FileText, label: "Pages" },
-    { href: "/views", icon: Database, label: "Views" },
     { href: "/automations", icon: Settings, label: "Automations" },
   ];
 

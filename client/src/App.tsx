@@ -9,6 +9,7 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Dashboard from "@/pages/dashboard";
 import Tasks from "@/pages/tasks";
+import KanbanPage from "@/pages/kanban";
 import CalendarPage from "@/pages/calendar";
 import PagesPage from "@/pages/pages";
 import AutomationsPage from "@/pages/automations";
@@ -32,7 +33,9 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={AuthenticatedApp} />
+          <Route path="/dashboard" component={AuthenticatedApp} />
           <Route path="/tasks" component={AuthenticatedApp} />
+          <Route path="/kanban" component={AuthenticatedApp} />
           <Route path="/calendar" component={AuthenticatedApp} />
           <Route path="/pages" component={AuthenticatedApp} />
           <Route path="/views" component={AuthenticatedApp} />
@@ -51,9 +54,13 @@ function AuthenticatedApp() {
   const getPageComponent = () => {
     switch (location) {
       case "/":
+        return <KanbanPage />;
+      case "/dashboard":
         return <Dashboard />;
       case "/tasks":
         return <Tasks />;
+      case "/kanban":
+        return <KanbanPage />;
       case "/calendar":
         return <CalendarPage />;
       case "/pages":
