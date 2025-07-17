@@ -79,10 +79,9 @@ export default function OnboardingModal({ isOpen, onComplete }: OnboardingModalP
   };
 
   const handleSkip = () => {
-    setupMutation.mutate({ 
-      projectName: "My First Project", 
-      firstTask: "Get started with Doabli" 
-    });
+    // Just complete onboarding without creating project/task
+    localStorage.setItem('doabli-onboarding-completed', 'true');
+    onComplete();
   };
 
   const renderStep = () => {
