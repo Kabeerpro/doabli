@@ -7,9 +7,16 @@ window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
   console.error('Promise rejection stack:', event.reason?.stack);
   
-  // Check if it's a fetch-related error or network error
+  // Handle specific error types gracefully
   if (event.reason?.name === 'TypeError' && event.reason?.message?.includes('fetch')) {
     console.log('Network/fetch error handled');
+  }
+  
+  // Handle WebSocket errors from Vite HMR or Eruda
+  if (event.reason?.message?.includes('WebSocket') || 
+      event.reason?.message?.includes('localhost:undefined') ||
+      event.reason?.stack?.includes('eruda.js')) {
+    console.log('WebSocket/Eruda error handled - likely HMR connection issue');
   }
   
   event.preventDefault(); // Prevent the default browser behavior

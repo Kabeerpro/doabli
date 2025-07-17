@@ -164,6 +164,9 @@ The architecture is designed to be modular and extensible, allowing for easy add
 - WebSocket connections use dynamic URLs with proper protocol detection
 - Query client handles unauthorized requests without throwing errors
 - All sensitive files properly excluded from version control
+- Fixed DOMException errors caused by Eruda debug tool WebSocket conflicts
+- Added conditional Eruda disabling for production environments
+- Enhanced error handling for Vite HMR and WebSocket connection issues
 
 ### Project Status: Production Ready
 - All database tables created and operational

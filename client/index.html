@@ -7,9 +7,19 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <!-- Disable Eruda in production and handle Replit scripts conditionally -->
     <script type="text/javascript">
-      // Only load Replit dev banner in development and handle errors
+      // Disable Eruda debug console in production
+      if (window.location.hostname.includes('.replit.app') || 
+          window.location.protocol === 'https:' && !window.location.hostname.includes('replit.dev')) {
+        // Production environment - disable Eruda completely
+        window.localStorage.setItem('eruda-disable', 'true');
+        if (window.eruda) {
+          window.eruda.destroy();
+        }
+      }
+      
+      // Only load Replit dev banner in development
       if (typeof window !== 'undefined' && 
           window.location.hostname.includes('.replit.dev') && 
           (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1')) {
