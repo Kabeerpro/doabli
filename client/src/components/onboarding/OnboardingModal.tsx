@@ -96,23 +96,32 @@ export default function OnboardingModal({ isOpen, onComplete }: OnboardingModalP
             <div>
               <h2 className="text-2xl font-bold mb-2">Welcome to Doabli!</h2>
               <p className="text-gray-600">
-                Let's get you set up in under a minute. We'll create your first project 
-                and help you understand the basics.
+                Your simple task management solution. We'll show you the three core actions 
+                you need to get started.
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-4 text-sm">
-              <Card className="p-4">
-                <Target className="w-6 h-6 text-blue-500 mx-auto mb-2" />
-                <div className="font-medium">Organize Tasks</div>
-              </Card>
-              <Card className="p-4">
-                <Users className="w-6 h-6 text-green-500 mx-auto mb-2" />
-                <div className="font-medium">Collaborate</div>
-              </Card>
-              <Card className="p-4">
-                <CheckCircle className="w-6 h-6 text-purple-500 mx-auto mb-2" />
-                <div className="font-medium">Get Things Done</div>
-              </Card>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 text-left p-3 bg-blue-50 rounded-lg">
+                <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                <div>
+                  <div className="font-medium">Create Tasks</div>
+                  <div className="text-sm text-gray-600">Click + to add new tasks</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 text-left p-3 bg-green-50 rounded-lg">
+                <div className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                <div>
+                  <div className="font-medium">Move Tasks</div>
+                  <div className="text-sm text-gray-600">Drag between To Do, In Progress, Complete</div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 text-left p-3 bg-purple-50 rounded-lg">
+                <div className="w-6 h-6 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                <div>
+                  <div className="font-medium">Stay Organized</div>
+                  <div className="text-sm text-gray-600">Watch your progress in real-time</div>
+                </div>
+              </div>
             </div>
           </div>
         );
@@ -170,7 +179,10 @@ export default function OnboardingModal({ isOpen, onComplete }: OnboardingModalP
 
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="max-w-md" hideClose>
+      <DialogContent className="max-w-md"
+        onPointerDownOutside={(e) => e.preventDefault()}
+        onEscapeKeyDown={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <div className="flex justify-between items-center">
             <DialogTitle className="text-sm text-gray-500">

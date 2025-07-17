@@ -6,9 +6,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import OnboardingModal from "@/components/onboarding/OnboardingModal";
+import SuccessAnimation from "@/components/SuccessAnimation";
 import { 
   Plus, 
   MoreHorizontal, 
@@ -16,7 +18,8 @@ import {
   User,
   AlertCircle,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  GripVertical
 } from "lucide-react";
 
 const COLUMNS = [
@@ -35,6 +38,8 @@ export default function KanbanPage() {
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [activeColumn, setActiveColumn] = useState<string | null>(null);
   const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const { user } = useAuth();
   const { toast } = useToast();
   const queryClient = useQueryClient();
@@ -65,17 +70,19 @@ export default function KanbanPage() {
       queryClient.invalidateQueries({ queryKey: ["/api/tasks"] });
       setNewTaskTitle("");
       setActiveColumn(null);
-      toast({
-        title: "Task created",
-        description: "Your new task has been added to the board",
-      });
+      setSuccessMessage("Task created!");
+      setShowSuccess(true);
     },
   });
 
   const updateTaskMutation = useMutation({
     mutationFn: ({ id, ...data }: any) => apiRequest(`/api/tasks/${id}`, "PATCH", data),
-    onSuccess: () => {
+    onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ queryKey: ["/api/tasks"] });
+      if (variables.status === "completed") {
+        setSuccessMessage("Task completed!");
+        setShowSuccess(true);
+      }
     },
   });
 
@@ -106,18 +113,45 @@ export default function KanbanPage() {
     return tasks.filter((task: any) => task.status === status);
   };
 
+  const [draggedTask, setDraggedTask] = useState<number | null>(null);
+  const [dragOverColumn, setDragOverColumn] = useState<string | null>(null);
+
   const handleDragStart = (e: React.DragEvent, taskId: number) => {
     e.dataTransfer.setData("taskId", taskId.toString());
+    setDraggedTask(taskId);
+    // Add visual feedback
+    e.currentTarget.classList.add("opacity-50");
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent, columnId: string) => {
     e.preventDefault();
+    setDragOverColumn(columnId);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverColumn(null);
   };
 
   const handleDrop = (e: React.DragEvent, status: string) => {
     e.preventDefault();
     const taskId = parseInt(e.dataTransfer.getData("taskId"));
     handleMoveTask(taskId, status);
+    setDraggedTask(null);
+    setDragOverColumn(null);
+    
+    // Remove visual feedback
+    document.querySelectorAll('[draggable="true"]').forEach(el => {
+      el.classList.remove("opacity-50");
+    });
+  };
+
+  const handleDragEnd = () => {
+    setDraggedTask(null);
+    setDragOverColumn(null);
+    // Remove visual feedback
+    document.querySelectorAll('[draggable="true"]').forEach(el => {
+      el.classList.remove("opacity-50");
+    });
   };
 
   if (isLoading) {
@@ -137,18 +171,22 @@ export default function KanbanPage() {
   }
 
   return (
-    <div className="flex-1 p-6">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">Task Board</h1>
-        <p className="text-gray-600">Organize and track your tasks visually</p>
-      </div>
+    <TooltipProvider>
+      <div className="flex-1 p-4 md:p-6">
+        <div className="mb-6">
+          <h1 className="text-xl md:text-2xl font-bold mb-2">Task Board</h1>
+          <p className="text-gray-600 text-sm md:text-base">Drag tasks between columns to update their status</p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {COLUMNS.map((column) => (
           <div
             key={column.id}
-            className="bg-white rounded-lg border shadow-sm"
-            onDragOver={handleDragOver}
+            className={`bg-white rounded-lg border shadow-sm transition-all duration-200 ${
+              dragOverColumn === column.id ? "ring-2 ring-primary ring-opacity-50 bg-blue-50" : ""
+            }`}
+            onDragOver={(e) => handleDragOver(e, column.id)}
+            onDragLeave={handleDragLeave}
             onDrop={(e) => handleDrop(e, column.id)}
           >
             {/* Column Header */}
@@ -162,23 +200,36 @@ export default function KanbanPage() {
             </div>
 
             {/* Tasks */}
-            <div className="p-4 space-y-3 min-h-[400px]">
+            <div className="p-3 md:p-4 space-y-3 min-h-[300px] md:min-h-[400px]">
               {getTasksByStatus(column.id).map((task: any) => (
                 <Card
                   key={task.id}
-                  className="cursor-move hover:shadow-md transition-shadow"
+                  className={`cursor-move hover:shadow-md transition-all duration-200 group ${
+                    draggedTask === task.id ? "opacity-50 scale-95" : ""
+                  }`}
                   draggable
                   onDragStart={(e) => handleDragStart(e, task.id)}
+                  onDragEnd={handleDragEnd}
                 >
-                  <CardContent className="p-4">
+                  <CardContent className="p-3 md:p-4">
                     <div className="space-y-3">
                       <div className="flex items-start justify-between">
-                        <h4 className="font-medium text-sm line-clamp-2">
-                          {task.title}
-                        </h4>
-                        <Button variant="ghost" size="sm" className="h-6 w-6 p-0">
-                          <MoreHorizontal className="w-3 h-3" />
-                        </Button>
+                        <div className="flex items-start space-x-2 flex-1">
+                          <GripVertical className="w-4 h-4 text-gray-400 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <h4 className="font-medium text-sm line-clamp-2 flex-1">
+                            {task.title}
+                          </h4>
+                        </div>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Button variant="ghost" size="sm" className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <MoreHorizontal className="w-3 h-3" />
+                            </Button>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Task options</p>
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
 
                       {task.description && (
@@ -266,30 +317,53 @@ export default function KanbanPage() {
                   </div>
                 </div>
               ) : (
-                <Button
-                  variant="ghost"
-                  className="w-full border-dashed border-2 border-gray-300 h-12 text-gray-500 hover:text-gray-700 hover:border-gray-400 transition-all"
-                  onClick={() => setActiveColumn(column.id)}
-                >
-                  <Plus className="w-4 h-4 mr-2" />
-                  <span className="text-sm">Add task</span>
-                </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      className="w-full border-dashed border-2 border-gray-300 h-10 md:h-12 text-gray-500 hover:text-gray-700 hover:border-gray-400 transition-all"
+                      onClick={() => setActiveColumn(column.id)}
+                    >
+                      <Plus className="w-4 h-4 mr-2" />
+                      <span className="text-sm">Add task</span>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Click to create a new task in {column.title}</p>
+                  </TooltipContent>
+                </Tooltip>
               )}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Mobile FAB */}
-      <FloatingActionButton 
-        onCreateTask={handleFloatingActionClick}
-        className="md:hidden"
-      />
+        {/* Mobile FAB */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div>
+              <FloatingActionButton 
+                onCreateTask={handleFloatingActionClick}
+                className="md:hidden"
+              />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Create new task</p>
+          </TooltipContent>
+        </Tooltip>
 
-      <OnboardingModal
-        isOpen={showOnboarding}
-        onComplete={handleOnboardingComplete}
-      />
-    </div>
+        <OnboardingModal
+          isOpen={showOnboarding}
+          onComplete={handleOnboardingComplete}
+        />
+
+        <SuccessAnimation
+          show={showSuccess}
+          message={successMessage}
+          onComplete={() => setShowSuccess(false)}
+        />
+      </div>
+    </TooltipProvider>
   );
 }

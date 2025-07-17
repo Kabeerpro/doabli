@@ -1,0 +1,57 @@
+Simplicity-Focused To-Do List for Replit
+Refine Onboarding:
+
+Implement a step-by-step guide for first-time users that introduces them to the Task Board and shows them how to create a task in three easy steps.
+
+Use tooltips and short descriptions to guide users on the main actions, like creating tasks or moving them across columns.
+
+Kanban as the Default View:
+
+Make sure that Kanban boards are always the first thing users see. They should not be hidden behind tabs or advanced options.
+
+Keep the interface minimal, focusing on the core actions (creating tasks, moving tasks, viewing tasks).
+
+One-Click Task Creation:
+
+Ensure task creation is fast: users should just click the floating button, type the task name, and hit Enter.
+
+Keep it one field (task name), and keep it simple. Don’t overwhelm users with additional options unless absolutely necessary.
+
+Drag-and-Drop Task Management:
+
+Improve the drag-and-drop interaction for moving tasks between columns (e.g., To Do → In Progress → Completed).
+
+Ensure instant visual feedback when tasks are moved, like smooth animations to show the task being placed in the new column.
+
+Clean & Minimal User Interface:
+
+Remove unnecessary elements from the sidebar or header. The user should always see the most important items: task board, task creation button, and simple board options.
+
+Use clear and intuitive icons for tasks, with simple color coding for priority or due dates.
+
+Responsive Design (Mobile Optimization):
+
+Optimize the mobile view to be as simple and user-friendly as the desktop version. This includes making sure users can manage tasks with one hand (floating buttons, large clickable areas, etc.).
+
+Make sure the task board layout is mobile-friendly, with no horizontal scrolling. Everything should fit in one screen.
+
+Contextual Help and Tooltips:
+
+Offer light contextual help in the form of tooltips or micro-interactions when users hover over a button or feature. For example, when hovering over the task creation button, display “Click to create a new task”.
+
+Minimize Settings Complexity:
+
+Keep the settings menu minimal: users should be able to access only the most essential settings (e.g., profile, notifications).
+
+Advanced settings (like filters or integrations) should be hidden in an advanced settings section.
+
+Instant Visual Feedback:
+
+Ensure that all actions (creating, moving, or completing tasks) have immediate visual feedback: smooth animations when tasks are moved, task cards expanding when clicked, and confirmation messages for completed tasks.
+
+Simplify Notifications:
+
+Only show relevant notifications to the user. For example, task updates, comments, and due date reminders.
+
+Avoid pop-ups or intrusive notifications that disrupt the user’s workflow.
+
