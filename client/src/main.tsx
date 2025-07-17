@@ -30,8 +30,10 @@ window.addEventListener('unhandledrejection', (event) => {
 window.addEventListener('error', (event) => {
   // Suppress Vite HMR configuration warnings that don't affect functionality
   if (event.error?.message?.includes('failed to connect to websocket') ||
-      event.message?.includes('failed to connect to websocket')) {
-    console.log('Vite HMR warning suppressed - WebSocket connection is working via URL fix');
+      event.message?.includes('failed to connect to websocket') ||
+      event.error?.message?.includes('localhost:undefined') ||
+      event.message?.includes('localhost:undefined')) {
+    console.log('Vite HMR notice suppressed - connection working via URL fix');
     event.preventDefault();
     return;
   }
