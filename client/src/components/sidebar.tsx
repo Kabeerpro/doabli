@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAuth } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import ProjectModal from "@/components/modals/ProjectModal";
 import { 
   Home, 
   CheckSquare, 
@@ -17,6 +19,7 @@ import {
 export default function Sidebar() {
   const [location] = useLocation();
   const { user } = useAuth();
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   const { data: projects = [] } = useQuery({
     queryKey: ["/api/projects"],
@@ -40,7 +43,8 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <>
+      <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
       {/* Logo & Brand */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center space-x-3">
@@ -86,6 +90,7 @@ export default function Sidebar() {
               variant="ghost" 
               size="sm"
               className="h-5 w-5 p-0 text-gray-400 hover:text-gray-600"
+              onClick={() => setIsProjectModalOpen(true)}
             >
               <Plus className="w-3 h-3" />
             </Button>
@@ -141,5 +146,11 @@ export default function Sidebar() {
         </Button>
       </div>
     </div>
+
+    <ProjectModal
+      isOpen={isProjectModalOpen}
+      onClose={() => setIsProjectModalOpen(false)}
+    />
+    </>
   );
 }

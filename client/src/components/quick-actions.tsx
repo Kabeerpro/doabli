@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,12 +11,17 @@ import {
   AlertCircle,
   CheckCircle 
 } from "lucide-react";
+import PageModal from "@/components/modals/PageModal";
+import InviteTeamModal from "@/components/modals/InviteTeamModal";
 
 interface QuickActionsProps {
   onNewTask?: () => void;
 }
 
 export default function QuickActions({ onNewTask }: QuickActionsProps) {
+  const [isPageModalOpen, setIsPageModalOpen] = useState(false);
+  const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
+
   const quickActions = [
     { 
       icon: Plus, 
@@ -26,19 +32,22 @@ export default function QuickActions({ onNewTask }: QuickActionsProps) {
     { 
       icon: Users, 
       label: 'Invite Team', 
-      onClick: () => console.log('Invite team'),
+      onClick: () => setIsInviteModalOpen(true),
       color: 'text-primary'
     },
     { 
       icon: FileText, 
       label: 'New Page', 
-      onClick: () => console.log('New page'),
+      onClick: () => setIsPageModalOpen(true),
       color: 'text-primary'
     },
     { 
       icon: Settings, 
       label: 'Automation', 
-      onClick: () => console.log('Automation'),
+      onClick: () => {
+        // TODO: Implement automation modal
+        console.log('Automation coming soon');
+      },
       color: 'text-primary'
     },
   ];
@@ -118,6 +127,16 @@ export default function QuickActions({ onNewTask }: QuickActionsProps) {
           </div>
         </CardContent>
       </Card>
+
+      <PageModal
+        isOpen={isPageModalOpen}
+        onClose={() => setIsPageModalOpen(false)}
+      />
+
+      <InviteTeamModal
+        isOpen={isInviteModalOpen}
+        onClose={() => setIsInviteModalOpen(false)}
+      />
     </div>
   );
 }

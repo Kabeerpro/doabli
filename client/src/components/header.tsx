@@ -77,6 +77,7 @@ export default function Header({
           
           <Button variant="ghost" size="sm">
             <Bell className="w-4 h-4" />
+            <span className="ml-2 text-sm font-medium hidden sm:inline">Subscribe</span>
           </Button>
         </div>
       </div>

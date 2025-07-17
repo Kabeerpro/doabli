@@ -11,6 +11,7 @@ import Dashboard from "@/pages/dashboard";
 import Tasks from "@/pages/tasks";
 import CalendarPage from "@/pages/calendar";
 import PagesPage from "@/pages/pages";
+import AutomationsPage from "@/pages/automations";
 import Sidebar from "@/components/sidebar";
 
 function Router() {
@@ -60,7 +61,7 @@ function AuthenticatedApp() {
       case "/views":
         return <div className="p-6"><h1>Views - Coming Soon</h1></div>;
       case "/automations":
-        return <div className="p-6"><h1>Automations - Coming Soon</h1></div>;
+        return <AutomationsPage />;
       default:
         if (location.startsWith("/projects/")) {
           return <div className="p-6"><h1>Project View - Coming Soon</h1></div>;
