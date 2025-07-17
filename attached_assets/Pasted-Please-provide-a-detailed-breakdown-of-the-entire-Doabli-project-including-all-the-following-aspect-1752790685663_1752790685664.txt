@@ -1,0 +1,70 @@
+Please provide a detailed breakdown of the entire Doabli project, including all the following aspects:
+
+1. Project Overview:
+A brief description of Doabli and its core functionality
+
+What problems does it solve? Who is the target audience?
+
+How does it compete with other project management tools like Trello, Notion, ClickUp, etc.?
+
+2. Features:
+List of core features (e.g., Kanban board, task management, real-time collaboration, database management, etc.)
+
+Description of each feature and how it works in the app
+
+Any unique features or functionalities that set Doabli apart from other tools
+
+3. Technology Stack:
+Frontend: What frameworks, libraries, or tools are being used? (e.g., React, Tailwind CSS, WebSocket)
+
+Backend: What technologies or frameworks are used in the backend? (e.g., Node.js, Express)
+
+Database: How is PostgreSQL integrated? Any specific configurations or models used?
+
+Authentication: What authentication method is used (Replit OIDC, JWT, etc.)?
+
+Real-time Communication: How is real-time collaboration implemented (WebSocket)?
+
+DevOps: Are there any CI/CD pipelines, deployment settings, or monitoring tools used?
+
+4. Project Structure:
+High-level overview of the folder structure (e.g., frontend and backend separation, API routes, components, etc.)
+
+Any important files that help configure the app (e.g., .replit, package.json, .gitignore, etc.)
+
+5. Environment & Configuration:
+Details about environment variables set (e.g., DATABASE_URL, SESSION_SECRET, etc.)
+
+Any secrets or sensitive data handled securely (e.g., using Replit Secrets for database credentials, session keys)
+
+How is configuration managed across different environments (dev, prod)?
+
+6. UI/UX:
+How is the user interface structured and what libraries/tools are used for styling (e.g., Tailwind CSS, Radix UI, etc.)?
+
+Any responsive design features implemented? How does the app behave on mobile devices?
+
+Is there accessibility considered in the app? (e.g., keyboard navigation, color contrast, etc.)
+
+7. Testing and Debugging:
+Is there a testing framework used for unit, integration, or end-to-end tests?
+
+How is error handling managed? Are there error boundaries in place?
+
+How is logging handled, especially in the development and production environments?
+
+8. Future Plans:
+Are there any future features or improvements planned for Doabli?
+
+Is there a roadmap for additional integrations, such as AI features, third-party integrations, or automation rules?
+
+9. Deployment:
+How is Doabli deployed (e.g., Replit hosting, Vercel, Netlify)?
+
+Is there an always-on service configured to keep the app running on the free tier?
+
+How are the WebSocket connections or long-running processes managed in production?
+
+Conclusion:
+Please provide a comprehensive answer covering each point above so I can fully understand the Doabli app, its architecture, technology, and overall structure. This detailed explanation will help with further development, debugging, and future scaling efforts.
+
