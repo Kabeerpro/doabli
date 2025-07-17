@@ -1,0 +1,179 @@
+[33mcommit 91211d95664a6a106685d4c13fa033cdff7c6e23[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:49:40 2025 +0000
+
+    Allow users to bypass the initial setup process when first using the app
+    
+    Implements a functional skip button to bypass the initial project setup in OnboardingModal.tsx.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/oOZVhZa
+
+[33mcommit 71342ca08673b06893af70da617e0784b823d146[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:31:14 2025 +0000
+
+    Enhance user experience with intuitive design and helpful onboarding
+    
+    Implement drag-and-drop, tooltip, animations, and onboarding improvements to Kanban page and FAB component.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/0GBxFtb
+
+[33mcommit 615a29ea94acbb56b87d0f7d341b6995f80e1ed5[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:24:59 2025 +0000
+
+    Introduce task board and streamline setup for new users on the platform
+    
+    Implements KanbanPage, FloatingActionButton, OnboardingModal, and modifies the App router to enable a simplified first-time user experience.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/sp7MKZv
+
+[33mcommit 58c71cc008cb0a51a4e3c52a35a567f3a98fb962[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:18:57 2025 +0000
+
+    Add comprehensive project breakdown for better understanding and development
+    
+    Adds a detailed breakdown of the Doabli project, covering its overview, features, technology stack, and future plans.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/hSLRWM7
+
+[33mcommit b2dcc07d3f9180dc733342dfdba325096d00f877[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:15:28 2025 +0000
+
+    Enable key functions and add project, page, and team management modals
+    
+    Implements missing UI functionalities, adds ProjectModal, PageModal, InviteTeamModal, and fixes textarea styling.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/hSLRWM7
+
+[33mcommit 33bd617dad47f37ad445211db8da887030410e84[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:10:01 2025 +0000
+
+    Suppress irrelevant warning messages during development
+    
+    Implements filtering of Vite HMR WebSocket errors in console.error and window.onerror to reduce noise during development.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/wM6ewzp
+
+[33mcommit cd92130728d97b0185a32c43e95fbb1f565a965a[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:02:10 2025 +0000
+
+    Improve development environment by fixing connection issues
+    
+    Fixes Vite HMR WebSocket URL in development and suppresses associated DOMException and console warnings.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/4eq2Apq
+
+[33mcommit 87c4d9bf57a912ebaaf2ee07463a64f7855a11c3[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 22:00:09 2025 +0000
+
+    Improve the website's ability to handle development environment errors
+    
+    Fixes WebSocket connection issues and errors related to Vite HMR during local development by intercepting and correcting invalid URLs, and handling related unhandled rejections.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/DUIFFrZ
+
+[33mcommit b1d4d3297be0d46bde6ac3cd63568248aac5f795[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 21:58:16 2025 +0000
+
+    Improve error handling and disable debugging tool in production
+    
+    Conditionally disables Eruda in production, enhances error handling for WebSocket and fetch errors, and updates replit.md.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/EF5ioRL
+
+[33mcommit 13eec17d5fdfc459604c03e2652d117e220cf827[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 21:54:37 2025 +0000
+
+    Improve website stability and fix errors during network requests
+    
+    Adds error handling for fetch requests and unhandled promise rejections in `client/`, improving app resilience.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/2aSm69o
+
+[33mcommit 1e4fb6b0e1456156258da39e6a0fbe35772182a8[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 21:52:42 2025 +0000
+
+    Improve application stability and ensure proper behavior in production
+    
+    Conditionally load Replit banner, add error handling, and configure react-query.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/JwPQ2hs
+
+[33mcommit 11cd8092277474d8be951a994153ec848ff61518[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 21:48:10 2025 +0000
+
+    Improve app stability and user experience with enhanced error handling
+    
+    Adds PostgreSQL module, implements React ErrorBoundary, improves WebSocket reconnection logic and updates queryClient config.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/ntwg5Gg
+
+[33mcommit 43b623b2b6fc600a6802ca300925e76855083c1b[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 21:44:11 2025 +0000
+
+    Improve client-side routing and remove hardcoded address for connections
+    
+    Update imports, use window.location instead of localhost, and wrap app in BrowserRouter.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/9pjdX9x
+
+[33mcommit c0bdc1974cc8f2aec23a7873742dc9ed286da856[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 20:19:09 2025 +0000
+
+    Create initial project documentation and improve file exclusion rules
+    
+    Adds a README with project overview, setup instructions, and updates .gitignore.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/x2NdscB
+
+[33mcommit 1230605cb34f8990ff185b3bd85deca056e34b1d[m
+Author: kabeerfarrukh22 <45178862-kabeerfarrukh22@users.noreply.replit.com>
+Date:   Thu Jul 17 20:15:19 2025 +0000
+
+    Update project settings and authentication for enhanced functionality
+    
+    Removes postgres module, adds a fallback secret, and migrates import from Replit Agent.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: 2ee38cd9-7e50-4986-a754-0aab8565086c
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/88072df0-f03e-4482-ba00-afc9477e9e0c/2ee38cd9-7e50-4986-a754-0aab8565086c/x2NdscB
