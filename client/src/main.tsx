@@ -15,8 +15,12 @@ window.addEventListener('unhandledrejection', (event) => {
   // Handle WebSocket errors from Vite HMR or Eruda
   if (event.reason?.message?.includes('WebSocket') || 
       event.reason?.message?.includes('localhost:undefined') ||
-      event.reason?.stack?.includes('eruda.js')) {
-    console.log('WebSocket/Eruda error handled - likely HMR connection issue');
+      event.reason?.message?.includes('Failed to construct \'WebSocket\'') ||
+      event.reason?.name === 'SyntaxError' && event.reason?.message?.includes('WebSocket') ||
+      event.reason?.stack?.includes('eruda.js') ||
+      event.reason?.stack?.includes('setupWebSocket') ||
+      event.reason?.stack?.includes('@vite/client')) {
+    console.log('Vite HMR WebSocket error handled - this is expected during development');
   }
   
   event.preventDefault(); // Prevent the default browser behavior

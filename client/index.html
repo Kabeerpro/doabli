@@ -6,6 +6,27 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Fix Vite HMR WebSocket configuration -->
+    <script type="text/javascript">
+      // Override WebSocket constructor to handle invalid localhost:undefined URLs
+      const OriginalWebSocket = window.WebSocket;
+      window.WebSocket = function(url, protocols) {
+        // Fix invalid localhost:undefined URLs from Vite HMR
+        if (typeof url === 'string' && url.includes('localhost:undefined')) {
+          const currentHost = window.location.host;
+          const fixedUrl = url.replace('localhost:undefined', currentHost);
+          console.log('Fixed invalid WebSocket URL:', url, '->', fixedUrl);
+          return new OriginalWebSocket(fixedUrl, protocols);
+        }
+        return new OriginalWebSocket(url, protocols);
+      };
+      // Copy static properties
+      Object.setPrototypeOf(window.WebSocket, OriginalWebSocket);
+      Object.defineProperty(window.WebSocket, 'prototype', {
+        value: OriginalWebSocket.prototype,
+        writable: false
+      });
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <!-- Disable Eruda in production and handle Replit scripts conditionally -->
     <script type="text/javascript">
