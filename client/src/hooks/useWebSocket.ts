@@ -15,6 +15,7 @@ export function useWebSocket() {
     const wsUrl = `${protocol}//${window.location.host}/ws`;
 
     try {
+      console.log('Connecting to WebSocket:', wsUrl);
       wsRef.current = new WebSocket(wsUrl);
 
       wsRef.current.onopen = () => {
@@ -31,15 +32,17 @@ export function useWebSocket() {
         }
       };
 
-      wsRef.current.onclose = () => {
-        console.log('WebSocket disconnected');
+      wsRef.current.onclose = (event) => {
+        console.log('WebSocket disconnected:', event.code, event.reason);
         setIsConnected(false);
         
-        // Attempt to reconnect after 3 seconds
-        reconnectTimeoutRef.current = setTimeout(() => {
-          console.log('Attempting to reconnect...');
-          connect();
-        }, 3000);
+        // Only reconnect if it wasn't a manual close
+        if (event.code !== 1000) {
+          reconnectTimeoutRef.current = setTimeout(() => {
+            console.log('Attempting to reconnect...');
+            connect();
+          }, 3000);
+        }
       };
 
       wsRef.current.onerror = (error) => {
