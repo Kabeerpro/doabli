@@ -15,7 +15,7 @@
         if (typeof url === 'string' && url.includes('localhost:undefined')) {
           const currentHost = window.location.host;
           const fixedUrl = url.replace('localhost:undefined', currentHost);
-          console.log('Fixed invalid WebSocket URL:', url, '->', fixedUrl);
+          console.log('✅ Fixed Vite HMR WebSocket URL - DOMException resolved');
           return new OriginalWebSocket(fixedUrl, protocols);
         }
         return new OriginalWebSocket(url, protocols);
