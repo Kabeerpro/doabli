@@ -9,13 +9,23 @@
     <script type="module" src="/src/main.tsx"></script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript">
-      // Only load Replit dev banner in development
-      if (window.location.hostname.includes('.replit.dev') && 
+      // Only load Replit dev banner in development and handle errors
+      if (typeof window !== 'undefined' && 
+          window.location.hostname.includes('.replit.dev') && 
           (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1')) {
-        const script = document.createElement('script');
-        script.src = 'https://replit.com/public/js/replit-dev-banner.js';
-        script.onerror = function() { console.log('Replit banner failed to load'); };
-        document.head.appendChild(script);
+        try {
+          const script = document.createElement('script');
+          script.src = 'https://replit.com/public/js/replit-dev-banner.js';
+          script.onerror = function() { 
+            console.log('Replit banner failed to load'); 
+          };
+          script.onload = function() {
+            console.log('Replit banner loaded successfully');
+          };
+          document.head.appendChild(script);
+        } catch (e) {
+          console.log('Error loading Replit banner:', e);
+        }
       }
     </script>
   </body>
